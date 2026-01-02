@@ -4,26 +4,21 @@ type HeaderProps = {
   logo?: React.ReactNode;
   leftAction?: React.ReactNode;
   rightActions?: React.ReactNode[];
+  className?: string;
 };
 
 export function Header({
   logo,
   leftAction,
   rightActions = [],
+  className,
 }: HeaderProps) {
+  const baseClassName =
+    "w-full h-[60px] flex items-center justify-between px-4 bg-[var(--header-bg)] border-b border-[var(--header-border)]";
+
   return (
     <header
-      className="
-        w-full
-        h-[60px]
-        flex
-        items-center
-        justify-between
-        px-4
-        bg-[var(--header-bg)]
-        border-b
-        border-[var(--header-border)]
-      "
+      className={[baseClassName, className].filter(Boolean).join(" ")}
     >
       {/* Left */}
       <div className="flex items-center gap-2 min-w-[48px]">
